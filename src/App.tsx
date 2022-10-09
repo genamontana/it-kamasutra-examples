@@ -8,6 +8,7 @@ function App() {
         <div>
             <p>2</p>
             <p>3</p>
+            <p>4</p>
             <p>Hello</p>
             <PageTitle title={"This is APP component"}/>
             <PageTitle title={"My Friends"}/>
