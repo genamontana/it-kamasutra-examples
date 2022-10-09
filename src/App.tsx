@@ -6,6 +6,7 @@ import {Rating} from "./components/Rating/Rating";
 function App() {
     return (
         <div>
+            <p>Hello</p>
             <PageTitle title={"This is APP component"}/>
             <PageTitle title={"My Friends"}/>
             <Rating value={3}/>
