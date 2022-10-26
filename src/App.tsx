@@ -7,6 +7,7 @@ function App() {
     return (
         <div>
             <Accordion titleValue={"Menu"} collapsed={true}/>
+
             <Accordion titleValue={"Users"} collapsed={false}/>
         </div>
     );
