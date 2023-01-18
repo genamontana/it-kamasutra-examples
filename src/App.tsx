@@ -47,7 +47,7 @@ function App() {
 
             <UncontrolledAccordion titleValue={'MenuControlled'}/>
 
-            <UncontrolledRating/>
+            <UncontrolledRating onChange={()=>{}}/>
         </div>
     );
 }

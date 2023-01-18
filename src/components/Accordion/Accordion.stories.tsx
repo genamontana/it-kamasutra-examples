@@ -1,27 +1,67 @@
 import React, {useState} from 'react';
-import {Accordion} from './Accordion';
+import {Accordion, AccordionPropsType} from './Accordion';
 import {action} from '@storybook/addon-actions';
+import {Story} from '@storybook/react';
 
-
-
-
+const GetCategoryObj = (categoryName: 'Color' | 'Event' | 'Main') => ({
+    table: {
+        category: categoryName
+    }
+})
 
 export default {
-    title: 'Accordion',
+    title: 'components/Accordion',
     component: Accordion,
+    argTypes: {
+        color: {
+            control: 'color',
+            ...GetCategoryObj('Color')
+        },
+        onChange: {...GetCategoryObj('Event')},
+        onClick: {...GetCategoryObj('Event')},
+        items: {...GetCategoryObj('Main')},
+        collapsed: {...GetCategoryObj('Main')},
+        titleValue: {...GetCategoryObj('Main')},
+    }
 };
 
 const callback = action('accordion mode change event fired');
 
-export const MenuCollapsedMode = () =>
-    <Accordion titleValue={'Menu'} onChange={callback} collapsed={true} />;
-export const UsersUnCollapsedMode = () =>
-    <Accordion titleValue={'Users'} onChange={callback} collapsed={false}/>;
+const Template: Story<AccordionPropsType> = (args) => <Accordion {...args}/>
+const callbackProps = {
+    onChange: callback,
+}
 
-export const ModeChanging = () => {
+export const MenuCollapsedMode = Template.bind({})
+MenuCollapsedMode.args = {
+    ...callbackProps,
+    titleValue: 'Menu',
+    collapsed: true,
+}
+
+export const UsersUnCollapsedMode = Template.bind({})
+UsersUnCollapsedMode.args = {
+    ...callbackProps,
+    titleValue: 'Users',
+    collapsed: false,
+}
+
+export const ModeChanging: Story<AccordionPropsType> = (args) => {
     const [value, setValue] = useState<boolean>(true);
-    return (
-        <Accordion titleValue={'Users'} collapsed={value} onChange={()=>(setValue(!value))}/>
-    )
-};
 
+    return <Accordion {...args}
+                      collapsed={value}
+                      onChange={() => setValue(!value)}/>
+};
+ModeChanging.args = {
+    titleValue: 'Users',
+    /*items: [
+        {title: 'Gena', value: 1},
+        {title: 'Valera', value: 2},
+        {title: 'Artem', value: 33},
+        {title: 'Viktor', value: 4},
+    ],
+    onClick: (value) => {
+        alert(`user with ID ${value} should be happy`)
+    }*/
+}
