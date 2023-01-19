@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useRef, useState} from 'react';
 import {Story} from '@storybook/react';
 import {OnOffPropsType} from '../components/OnOff/OnOff';
+import {action} from '@storybook/addon-actions';
 
 
 export default {
@@ -41,14 +42,15 @@ export const GetValueOfUncontrolledInputByButtonPress: Story<any> = (args) => {
 };
 GetValueOfUncontrolledInputByButtonPress.args = {};
 
-
-
-
-
 export const ControlledInput: Story<any> = (args) => {
+    const [parentValue, setParentValue] = useState('')
 
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setParentValue(e.currentTarget.value)
+    }
     return <>
-        <input/>
+        <input value={parentValue}
+               onChange={onChange}/>
     </>
 };
 ControlledInput.args = {};
@@ -68,11 +70,6 @@ export const ControlledSelect: Story<any> = (args) => {
     </>
 };
 ControlledSelect.args = {};
-
-
-
-
-
 
 
 export const ControlledInputWithFixedValue = Template.bind({});
