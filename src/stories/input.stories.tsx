@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useRef, useState} from 'react';
 import {Story} from '@storybook/react';
+import {OnOffPropsType} from '../components/OnOff/OnOff';
 
 
 export default {
@@ -39,6 +40,40 @@ export const GetValueOfUncontrolledInputByButtonPress: Story<any> = (args) => {
     </>
 };
 GetValueOfUncontrolledInputByButtonPress.args = {};
+
+
+
+
+
+export const ControlledInput: Story<any> = (args) => {
+
+    return <>
+        <input/>
+    </>
+};
+ControlledInput.args = {};
+
+export const ControlledCheckbox: Story<any> = (args) => {
+
+    return <>
+        <input type={'checkbox'}/>
+    </>
+};
+ControlledCheckbox.args = {};
+
+export const ControlledSelect: Story<any> = (args) => {
+
+    return <>
+        <input type={'checkbox'}/>
+    </>
+};
+ControlledSelect.args = {};
+
+
+
+
+
+
 
 export const ControlledInputWithFixedValue = Template.bind({});
 ControlledInputWithFixedValue.args = {
