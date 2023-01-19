@@ -16,6 +16,8 @@ function App() {
     return (
         <div className={'App'}>
             <Accordion
+                onClick={()=>{}}
+                items={[]}
                 titleValue={'Menu'}
                 collapsed={collapsed}
                 onChange={() => {
@@ -23,6 +25,8 @@ function App() {
                 }}/>
 
             <Accordion
+                onClick={()=>{}}
+                items={[]}
                 titleValue={'Users'}
                 collapsed={collapsed}
                 onChange={() => {

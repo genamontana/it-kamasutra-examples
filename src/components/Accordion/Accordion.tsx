@@ -1,5 +1,10 @@
 import React from 'react';
 
+type ItemType = {
+    title: string
+    value: any
+}
+
 export type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
@@ -7,12 +12,12 @@ export type AccordionPropsType = {
     /**
      * Elements that are showed when accordion is opened. Each item should be ItemType
      */
-    //items: ItemType[] (Раскоментить когда доберусь до этого момента)
+    items: ItemType[]
     /**
      * callback that is called when any item clicked
      * @param value is value of clicked item
      */
-    //onClick: (value:any)=>void
+    onClick: (value: any) => void
     /**
      * optional color oh header text
      */
@@ -25,7 +30,8 @@ export function Accordion(props: AccordionPropsType) {
                         onChange={props.onChange}
                         color={props.color}
         />
-        {!props.collapsed && <AccordionBody/>}
+        {!props.collapsed && <AccordionBody items={props.items}
+                                            onClick={props.onClick}/>}
     </div>
 
 }
@@ -47,12 +53,19 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     );
 }
 
-function AccordionBody() {
+export type AccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (value: any) => void
+}
+
+function AccordionBody(props: AccordionBodyPropsType) {
     /*console.log('AccordionBody rendering')*/
     return <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        {props.items.map((i, index) =>
+            <li onClick={() => props.onClick(i.value)}
+                key={index}
+            >
+                {i.title}</li>)}
     </ul>
 }
 

@@ -37,6 +37,10 @@ MenuCollapsedMode.args = {
     ...callbackProps,
     titleValue: 'Menu',
     collapsed: true,
+    items:[],
+    onClick: (value:any) => {
+        alert(`user with ID ${value} should be happy`)
+    },
 }
 
 export const UsersUnCollapsedMode = Template.bind({})
@@ -44,6 +48,15 @@ UsersUnCollapsedMode.args = {
     ...callbackProps,
     titleValue: 'Users',
     collapsed: false,
+    items: [
+        {title: 'Gena', value: 1},
+        {title: 'Valera', value: 2},
+        {title: 'Artem', value: 33},
+        {title: 'Viktor', value: 4},
+    ],
+    onClick: (value:any) => {
+        alert(`user with ID ${value} should be happy`)
+    },
 }
 
 export const ModeChanging: Story<AccordionPropsType> = (args) => {
@@ -55,7 +68,7 @@ export const ModeChanging: Story<AccordionPropsType> = (args) => {
 };
 ModeChanging.args = {
     titleValue: 'Users',
-    /*items: [
+    items: [
         {title: 'Gena', value: 1},
         {title: 'Valera', value: 2},
         {title: 'Artem', value: 33},
@@ -63,5 +76,5 @@ ModeChanging.args = {
     ],
     onClick: (value) => {
         alert(`user with ID ${value} should be happy`)
-    }*/
+    },
 }
