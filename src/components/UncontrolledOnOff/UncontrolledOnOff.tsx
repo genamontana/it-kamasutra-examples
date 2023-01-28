@@ -17,7 +17,6 @@ export const UncontrolledOnOff = (props: OnOffPropsType) => {
         padding: '2px',
         background: on ? 'green' : 'white',
     }
-
     const offStyle = {
         width: '30px',
         height: '20px',
