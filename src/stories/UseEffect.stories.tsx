@@ -56,10 +56,16 @@ export const SetTimeoutExample = () => {
 
     console.log('SetTimeoutExample')
 
+    /*useEffect(() => {
+        setTimeout(()=>{document.title = counter.toString()},1000)
+    }, [counter])*/
+
     useEffect(() => {
-        console.log('useEffect');
-        document.title = counter.toString()
-    }, [counter])
+        setInterval(() => {
+            setCounter((state) => state + 1)
+        }, 1000)
+    }, [])
+
 
     return <>
         Hello, {counter} {fake}
