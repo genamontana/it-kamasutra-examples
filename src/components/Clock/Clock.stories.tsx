@@ -6,9 +6,9 @@ export default {
 }
 
 export const BaseAnalogExamples = ()=>{
-    return <Clock/>
+    return <Clock mode={'analog'}/>
 }
 
 export const BaseDigitalExamples = ()=>{
-    return <Clock/>
+    return <Clock mode={'digital'}/>
 }
